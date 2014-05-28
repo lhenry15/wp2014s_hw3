@@ -122,17 +122,17 @@ var n={
 				var n=e.value===t.value?true:false;
 				i("form-signup-message",function(){
 					return n
-					},"Passwords don't match.");return n
+					},"密碼好像不一樣噢");return n
 				};
 			
 			document.getElementById("content").innerHTML=e.loginView(); //印出login畫面的版型
 			//判斷是否為修課人員
 			document.getElementById("form-signin-student-id").addEventListener("keyup",function(){
-				i("form-signin-message",function(){return r("form-signin-student-id")},"The student is not one of the class students.")
+				i("form-signin-message",function(){return r("form-signin-student-id")},"你沒修這堂課吧？")
 				});
 			document.getElementById("form-signin").addEventListener("submit",function(){
 				if(!r("form-signin-student-id")){
-					alert("The student is not one of the class students.");return false
+					alert("你沒上這堂課吧？");return false
 					}
 				//登入
 				Parse.User.logIn(document.getElementById("form-signin-student-id").value,document.getElementById("form-signin-password").value,{
@@ -143,7 +143,7 @@ var n={
 							i("form-signin-message",function(){
 								return false 
 								}
-							,"Invaild username or password.")
+							,"使用者帳號/密碼錯誤")
 							}
 					})
 			},false);
@@ -151,12 +151,12 @@ var n={
 			document.getElementById("form-signup-student-id").addEventListener("keyup",function(){
 				i("form-signup-message",function(){
 					return r("form-signup-student-id")
-				},"The student is not one of the class students.")
+				},"你沒上這堂課吧？")
 			});
 			document.getElementById("form-signup-password1").addEventListener("keyup",o);
 			document.getElementById("form-signup").addEventListener("submit",function(){
 				if(!r("form-signup-student-id")){
-					alert("The student is not one of the class students.");return false
+					alert("你沒上這堂課吧？");return false
 					}
 					var e=o();					
 					//註冊新會員
